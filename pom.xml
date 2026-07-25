@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chessplugin</groupId>
+    <artifactId>chessplugin</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!--
+        NOT: Spigot 26.2, Mojang'in yil.surum (26.x) numaralandirmasina gectigi
+        Minecraft surumune karsilik gelir (Temmuz 2026). Bu API'yi yerel Maven
+        deponuza almak icin BuildTools kullanmaniz gerekir (BuildTools.jar'i
+        "rev" parametresiyle 26.2 surumune karsi calistirin).
+
+        Bu islem hub.spigotmc.org uzerinden Mojang sunucu dosyalarini indirip
+        Spigot yamalarini uygular ve org.spigotmc:spigot-api:26.2-R0.1-SNAPSHOT
+        artifact'ini yerel .m2 deponuza kurar. Sandbox ortaminda bu adrese
+        aglanti izni olmadigi icin derleme islemini kendi bilgisayarinizda
+        yapmaniz gerekiyor (README.md'ye bakin).
+    -->
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>26.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>ChessPlugin</finalName>
+        <defaultGoal>clean package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

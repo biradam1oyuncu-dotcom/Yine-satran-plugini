@@ -1,0 +1,24 @@
+name: ChessPlugin
+version: '4.0.0'
+main: com.chessplugin.ChessPlugin
+description: Sifirdan ozel gorunumlu Satranc Masasi, gercek tas gorselleri, tek parca 8x8 dunya-uzayi tahta.
+author: ChessPlugin
+website: https://exaroton.com
+
+commands:
+  chess:
+    description: Satranc eklentisi ana komutu
+    usage: |
+      /chess invite <oyuncu>  - Rakip davet eder (kendi adinizi yazarsaniz kendi kendinize oynarsiniz)
+      /chess accept           - Bekleyen daveti kabul eder (Siyah olarak)
+      /chess decline          - Bekleyen daveti reddeder
+      /chess resign           - Oyunu terk eder / bekleyen daveti iptal eder
+      /chess rematch          - Bitmis bir oyunda rovans teklif eder
+      /chess help             - Yardim menusunu gosterir
+    permission: chessplugin.play
+    aliases: [satranc]
+
+permissions:
+  chessplugin.play:
+    description: Satranc oynama izni
+    default: true
